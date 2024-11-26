@@ -109,3 +109,15 @@ Este código debería compilar y funcionar en CLion sin necesidad de agregar la 
 Por último, ten en cuenta que este código no realiza una comprobación completa de errores y no es robusto contra varios tipos de errores de entrada. Dependiendo de tu caso de uso específico, es posible que desees agregar comprobaciones de errores adicionales y manejar los fallos de manera más sofisticada.
 
 # Valoración del código del compañero (Daniel Soria)
+* Errores:
+    * 1º. Si 'fopen' falla, solo se informa un mensaje genérico como "Error de apertura de archivo". Esto no es suficiente para saber la causa exacta, ya que la apertura puede fallar por múltiples razones, como:
+        * El archivo no existe.
+        * Falta de permisos para leer el archivo.
+        * Ruta incorrecta o archivo bloqueado.
+    * 2º. Si ocurre un error durante la lectura del archivo, el programa no lo detecta ni lo maneja adecuadamente. Por ejemplo: Archivos corruptos o interrupciones durante la lectura.
+    * 3º. Si ocurre una excepción o error inesperado después de abrir el archivo, este nunca se cierra, provocando fugas de recursos.
+
+
+
+
+
